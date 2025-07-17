@@ -29,3 +29,24 @@ async function getWeather() {
         resultDiv.innerHTML = `<div class="text-center text-danger">City not found or API error.</div>`;
     }
 }
+
+/**
+ * Theme toggle: switch between dark and light modes.
+ */
+const themeButton = document.getElementById('themeToggle');
+
+// Default mode is light
+document.body.classList.add('light-mode');
+
+// Add event listener for theme toggle button
+themeButton.addEventListener('click', () => {
+    if (document.body.classList.contains('light-mode')) {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+        themeButton.textContent = '☀️'; // Change icon to sun
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+        themeButton.textContent = '🌙'; // Change icon to moon
+    }
+});
